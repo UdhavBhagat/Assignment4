@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
     ScrollView,
     Pressable,
@@ -8,31 +8,32 @@ import {
 } from 'react-native';
 
 function ToDoList({ tasks }) {
-    return(
+    return (
         <ScrollView>
-          {tasks.map((item) => {
-            <Pressable>
-            <View style={[styles.task, styles.completed]}>
-              <Text style={styles.taskText}>Do laundry</Text>
-            </View>
-          </Pressable>
-          })}
-      </ScrollView>
-    )
+            {tasks.map((item, index) => (
+                <Pressable key={index}>
+                    <View style={[styles.task, styles.completed]}>
+                        <Text style={styles.taskText}>{item}</Text>
+                    </View>
+                </Pressable>
+            ))}
+        </ScrollView>
+    );
 }
 
-export default ToDoList
+export default ToDoList;
 
 const styles = StyleSheet.create({
     task: {
-      padding: 10,
-      borderBottomWidth: 1,
-      borderColor: '#ccc',
+        padding: 10,
+        borderBottomWidth: 1,
+        borderColor: '#ccc',
     },
     completed: {
-      backgroundColor: '#e0e0e0',
+        backgroundColor: '#e0e0e0',
     },
     taskText: {
-      fontSize: 16,
+        fontSize: 16,
+        color: 'black',
     },
 });

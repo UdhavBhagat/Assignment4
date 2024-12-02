@@ -1,4 +1,7 @@
 {
   "name": "Assignment4",
-  "displayName": "Assignment4"
+  "displayName": "Assignment4",
+  "expo" : {
+    "entryPoint" : "./src/App.jsx"
+  }
 }

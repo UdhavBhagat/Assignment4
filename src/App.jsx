@@ -6,7 +6,6 @@
 
 import React, { useState } from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
   Pressable,
   View,
@@ -15,6 +14,7 @@ import {
   TextInput,
   Button
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import ToDoList from './ToDoList';
 import ToDoForm from './ToDoForm';
 
@@ -25,10 +25,14 @@ function App() {
     'Go to gym',
     'Walk dog'
   ]);
+
+  const addTask = (taskText) => {
+    setTasks([...tasks, taskText]);
+  }
   return (
     <SafeAreaView>
-        <ToDoList tasks={tasks}/>
-      <ToDoForm />
+      <ToDoForm addTask={addTask}/>
+      <ToDoList tasks={tasks}/>
     </SafeAreaView>
   );
 }
