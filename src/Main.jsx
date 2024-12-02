@@ -5,6 +5,8 @@
  */
 
 import React, { useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import {
   StyleSheet,
   Pressable,
@@ -17,24 +19,20 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import ToDoList from './ToDoList';
 import ToDoForm from './ToDoForm';
+import HomeScreen from './screens/HomeScreen';
+import AboutScreen from './screens/AboutScreen';
 
 
-function App() {
-  const [tasks, setTasks] = useState([
-    'Do laundry',
-    'Go to gym',
-    'Walk dog'
-  ]);
-
-  const addTask = (taskText) => {
-    setTasks([...tasks, taskText]);
-  }
+function Main() {
+  const Stack = createStackNavigator();
   return (
-    <SafeAreaView>
-      <ToDoForm addTask={addTask}/>
-      <ToDoList tasks={tasks}/>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-export default App;
+export default Main;
